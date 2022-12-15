@@ -6,7 +6,7 @@ tags: [nmap, gobuster, john]     # TAG names should always be lowercase
 img_path: /assets/img/Maquinas/THM/Easy-Peasy
 ---
 
-# TryHackMe EASY PEASY
+# Realización
 
 Primero sacamos los puertos abiertos que tiene con:
 
