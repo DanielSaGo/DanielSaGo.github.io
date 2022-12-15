@@ -1,5 +1,5 @@
 ---
-title: Easy Peasy
+title: THM - Easy Peasy
 date: 2022-12-15 19:00:00 PM
 categories: [Máquinas, TryHackMe]
 tags: [nmap, gobuster, john]     # TAG names should always be lowercase
