@@ -1,0 +1,110 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>P1-Bastionado-del-arranque-del-sistema</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="Guia bastionado del arranque de un sistema Debian"
+                  title="P1-Bastionado-del-arranque-del-sistema"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Introdución" duration="0">
+        <p>En este página podremos ver un guia de como bastionar el arranque de un sistema debian.<br>No te preocupes si nunca has hecho nada parecido, porque se explicaran cada uno de los pasos con detenimiento, para su facilidad.</p>
+<p>En la siguiente guía podremos ver los siguientes apartados, los cuales trataremos con más profundidad en cada una de sus secciones:</p>
+<ul>
+<li>Encriptación de discos</li>
+<li>Ocultacion del arranque</li>
+<li>Contraseña de arranque</li>
+<li>Copias de seguridad</li>
+</ul>
+<p class="image-container"><img alt="intro" src="img\8257d2b00f574918.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Encriptación de discos" duration="0">
+        <p>Primeramente antes de comenzar la configuración interna del arranque del sistema, empezaremos con la encriptación del disco duro.<br>Cuando empecemos a crear la máquina virtual de Debian seguiremos los pasos que veremos a continuación para poder encriptar el disco correctamente.</p>
+<p>Para empezar con la encriptación del disco duro, iremos configurando los parámetro de la instalación hasta que veamos este apartado.<br>Cogeremos la opción guiada configurandolo con LVM cifrado, con el objetivo de tener la máxima confidencialidad cuando usemos el equipo, al estar todos los datos cifrados.<br><img alt="e" src="img\c12a6c4007f134bc.png"></p>
+<p>A continuación, elegimos el disco, y seleccionamos si lo queremos todo en una partición.<br><img alt="e" src="img\a1f062e6769f57fd.png"></p>
+<p class="image-container"><img alt="e" src="img\1018c305bbc3b12a.png"></p>
+<p>Ahora nos pedirá guardar los cambios configurados y configurar LVM que nos permitirá poder cambiar el tamaño más adelante. Le daremos que si y empezará a guardar.<br><img alt="e" src="img\4c3ad159804f2d66.png"></p>
+<p class="image-container"><img alt="e" src="img\d5662ecfc858f2fe.png"></p>
+<p>Cuando termine el proceso nos pedirá una contraseña para cifrar y descifrar el disco duro.<br><img alt="e" src="img\b2d957901ec99079.png"></p>
+<p class="image-container"><img alt="e" src="img\89497cf4c43a8a86.png"></p>
+<p>Nos expondrá a continuación el resumen de las particiones que están en el disco, únicamente le daremos a continuar para que finalizemos el particionado y para escribir los cambios en el disco.<br><img alt="e" src="img\7ff4012f5262c977.png"></p>
+<p>A Continuación nos preguntará si queremos guardar los cambios efectuados, le daremos a que sí.<br><img alt="e" src="img\4099a48f96a22454.png"></p>
+<p>Ya habriamos terminado la configuración y ya a partir de aquí seguiremos la instalación como siempre.<br><img alt="e" src="img\2b173098e403e28c.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Ocultación del arranque" duration="0">
+        <p>En este apartado veremos como configurar debian para que cuando arranque el sistema se oculte y no se pueda modificar.<br>Primeramente para poder comenzar a configurarlo, entraremos en modo root y modificaremos el archivo: &#34;/etc/default/grub&#34;.<br><img alt="om" src="img\7efd4acd8d967390.png"></p>
+<p>En este archivo podremos modificar el tiempo que queremos que se vea el arranque. Por tanto para protegerlo lo pondremos en 0 segundos, para ello cambiaremos la línea de &#34;GRUB_TIMEOUT&#34; y podremos 0, como vemos en la imagen siguiente.<br><img alt="om" src="img\b88f2c39f283623d.png"></p>
+<p>Después de modificar el archivo nos saldremos y guardamos. Para ello pulsaremos las teclas ctrl+x y confirmaremos que queremos guardar.<br><img alt="om" src="img\86251f72988eeb1b.png"></p>
+<p>Por último actualizamos grub con el comando update_grub, para que se efectúe la configuración modificada.<br><img alt="om" src="img\f55b960382dcc3d6.png"></p>
+<p>Una vez realizado todos los pasos anteriores, el sistema se arranque estará oculto al tardar 0 segundos.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Contraseña de arranque" duration="0">
+        <p>En este apartado veremos cómo poder poner una contraseña de arranque por seguridad.</p>
+<p>Primero antes de empezar a configurar el archivo para asignar la contraseña, escribiremos el comando que vemos en la imagen para encriptar la contraseña y tener aún más seguridad. &#34;grub-mkpasswd-pbkdf2&#34;<br>Antes de seguir copiaremos la contraseña encriptada.<br><img alt="ca" src="img\5f8fd338e07b7bda.png"></p>
+<p>Ahora para asignar una contraseña al arranque nos iremos al archivo de configuración de grub, usando el comando que vemos a continuación.<br><img alt="ca" src="img\723f17c0ee8cf33c.png"></p>
+<p>En el archivo pondremos al usuario del sistema como root y en la línea siguiente pondremos como vemos en la imagen la contraseña encriptada y el usuario para autenticarse cuando arranque el sistema.<br><img alt="ca" src="img\154992f256e68197.png"></p>
+<p>Como vemos cuando volvamos a iniciar el sistema, nos perdura autentificarse para poder acceder al sistema.<br><img alt="ca" src="img\9240c1ee4e467b51.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Copias de seguridad" duration="0">
+        <p>En este apartado veremos cómo automatizar la ejecución de copias de seguridad de un directorio que especifiquemos, creando un script y utilizando crontab.</p>
+<p>Primeramente antes de comenzar, crearemos un directorio en el cual guardaremos las copias de seguridad que hagamos. Para ello nos iremos donde queramos crear el directorio y crearemos el directorio de backups, con &#34;mkdir x&#34;.<br><img alt="cp" src="img\512f15db7e26f4b7.png"></p>
+<p>Después de haber creado el directorio donde guardaremos las copias, nos vamos al directorio bin y creamos el archivo el script-copias.sh, en el cual crearemos el script que ejecutará la copia de seguridad.<br><img alt="cp" src="img\c1526f98f47451b1.png"></p>
+<p>Dentro del archivo que hemos creado, escribiremos lo que vemos en la siguiente imagen. Dicho script está dividido en tres partes:</p>
+<ol type="1">
+<li>cp -R → copiara lo especificado.</li>
+<li>/home/danielsg/* → especificamos que queremos copiar</li>
+<li>/carpeta-backups → especificamos dónde queremos copiarlo</li>
+</ol>
+<p class="image-container"><img alt="cp" src="img\56e8b623248e4a08.png"></p>
+<p>Cuando termine de crear el script, daremos permisos de ejecución al archivo.<br><img alt="cp" src="img\1ae8c8055c2351d1.png"></p>
+<p>Ahora actualizaremos el sistema para poder descargar crontab, el cual automatiza el script para que se ejecute cuando nosotros digamos.<br><img alt="cp" src="img\cc57736382d79136.png"></p>
+<p>También configuraremos el cron para que funcione en segundo plano, para ello usaremos el siguiente comando.<br><img alt="cp" src="img\2e2123cfcddc037d.png"></p>
+<p>Ahora para poder configurar el cron nos vamos a /bin y entramos en cron como vemos en la imagen.<br><img alt="cp" src="img\d6173b3eefce8413.png"></p>
+<p>Dentro del archivo, lo configuramos para que haga copias automáticas, cada viernes de la semana, utilizando el script que creamos anteriormente.<br><img alt="cp" src="img\27b4c1a04bca9cd0.png"></p>
+<p>Por último reiniciamos el servicio de cron, para que se ejecute cada viernes de la semana.<br><img alt="cp" src="img\3a2a42a094ff0310.png"></p>
+<p>Y ya con todo lo configurado anteriormente podremos ver que en el directorio backups están los directorios y documentos copiados.<br><img alt="cp" src="img\d1b0bfa22c3d6793.png"></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+
+</body>
+</html>
