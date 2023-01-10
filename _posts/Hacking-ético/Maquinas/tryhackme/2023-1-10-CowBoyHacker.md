@@ -1,5 +1,5 @@
 ---
-title: THM - Easy Peasy
+title: THM - COWBOYHACKER
 date: 2022-12-15 19:00:00 PM
 categories: [Máquinas, TryHackMe]
 tags: [nmap, ftp, ssh, hydra]     # TAG names should always be lowercase
@@ -10,7 +10,7 @@ img_path: /assets/img/Maquinas/THM/CowBoyHacker
 
 Primeramente escaneamos los primeros 100 puertos que tiene la maquina para ir con mayor velocidad y en segundo plano, escaneamos los demás puertos de la maquina.
 
-![Untitled](Untitled.png)
+![Untitled](p.png)
 
 ![Untitled](p1.png)
 
