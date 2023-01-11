@@ -38,7 +38,7 @@ A continuación veremos el contenido de los dos archivos:
 
 ![Untitled](p6.png)
 
-Después de sacar la lista de contraseñas, probaremos a entrar con fuerza bruta a ssh, con el usuario “lin”, que sacamos en el txt “task.txt”
+Después de sacar la lista de contraseñas, probaremos a entrar con fuerza bruta a ssh, con el usuario “X”, que sacamos en el txt “task.txt”
 
 ![Untitled](p7.png)
 
@@ -46,7 +46,7 @@ Accedemos a ssh con este usuario y contraseña y hacemos un ls para ver que nos 
 
 ![Untitled](p8.png)
 
-Primero miraremos las aplicaciones que tienen permisos de administrador que tiene el usuario lin.
+Primero miraremos las aplicaciones que tienen permisos de administrador que tiene el usuario "x".
 
 ![Untitled](p9.png)
 
