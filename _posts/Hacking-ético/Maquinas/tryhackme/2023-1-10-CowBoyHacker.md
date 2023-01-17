@@ -59,9 +59,3 @@ Nos vamos al navegador y buscamos la pagina gtfobins, para coger el comando de e
 Una vez ejecutado el comando vemos que tenemos acceso como root, nos vamos a su carpeta principal y vemos el archivo que hay en esta:
 
 ![Untitled](p11.png)
-
-Realizado por:
-
-[@danielsago](https://github.com/DanielSaGo)
-
-[@mariadgt](https://github.com/mariadgt)
