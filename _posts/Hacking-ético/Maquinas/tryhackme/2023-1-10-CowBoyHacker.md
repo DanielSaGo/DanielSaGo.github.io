@@ -1,8 +1,8 @@
 ---
 title: THM - CowBoyHacker
-date: 2022-12-15 19:00:00 PM
+date: 2023-1-10 19:00:00 PM
 categories: [Máquinas, TryHackMe]
-tags: [nmap, ftp, ssh, hydra]     # TAG names should always be lowercase
+tags: [nmap, ftp, ssh, hydra]    # TAG names should always be lowercase
 img_path: /assets/img/Maquinas/THM/CowBoyHacker
 ---
 
